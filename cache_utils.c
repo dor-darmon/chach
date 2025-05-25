@@ -30,8 +30,8 @@ cache_t initialize_cache(uchar s, uchar t, uchar b, uchar E)
     return cache;
 }
 
-// Simulates reading a byte from memory using the cacheuchar
-read_byte(cache_t cache, uchar *start, long int off)
+// Simulates reading a byte from memory using the cache
+uchar read_byte(cache_t cache, uchar *start, long int off)
 {
     int B = 1 << cache.b;
     int set_index = (off >> cache.b) & ((1 << cache.s) - 1);
@@ -107,8 +107,8 @@ void write_byte(cache_t cache, uchar *start, long int off, uchar new)
     write_byte(cache, start, off, new);
 }
 
-// Prints the current state of the cache in the required formatvoid
-print_cache(cache_t cache)
+// Prints the current state of the cache in the required format
+void print_cache(cache_t cache)
 {
     int S = 1 << cache.s;
 
